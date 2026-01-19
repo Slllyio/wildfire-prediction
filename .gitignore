@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Google Earth Engine credentials
+.config/
+*.json
+!config.py
+
+# Data files (too large for GitHub)
+*.zip
+*.tif
+*.tiff
+*.geotiff
+data/raw/
+data/processed/
+data/interim/
+outputs/
+models/*.pth
+models/*.pt
+models/*.ckpt
+models/*.h5
+models/*.safetensors
+
+# Keep model configs but not weights
+!models/*.yaml
+!models/*.json
+!models/README.md
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Specific large files
+training_data.zip
+training_small.zip
+extraction.log
