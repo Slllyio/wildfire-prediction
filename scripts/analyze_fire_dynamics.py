@@ -15,7 +15,7 @@ from datetime import datetime
 import math
 from scipy.spatial.distance import cdist
 
-GEE_PROJECT_ID = 'van-suraksha-alert'
+GEE_PROJECT_ID = 'monkhub-internal-enetra-dev'
 INPUT_CSV = r"c:\Users\dfogu\.gemini\antigravity\scratch\wildfire_v2\outputs\training_features_multisource.csv"
 OUTPUT_CSV = r"c:\Users\dfogu\.gemini\antigravity\scratch\wildfire_v2\outputs\fire_dynamics_analysis.csv"
 

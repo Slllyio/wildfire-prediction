@@ -4,7 +4,7 @@ Configuration settings
 """
 
 # Google Earth Engine
-GEE_PROJECT_ID = 'van-suraksha-alert'
+GEE_PROJECT_ID = 'monkhub-internal-enetra-dev'
 BEATS_ASSET_ID = 'projects/ee-akshayr1/assets/bichua'
 
 # Study Area (Chhindwara District)

@@ -1,7 +1,7 @@
 
 import ee
 # Hardcoded project ID to avoid import issues
-GEE_PROJECT_ID = "van-suraksha-alert"
+GEE_PROJECT_ID = "monkhub-internal-enetra-dev"
 
 try:
     ee.Initialize(project=GEE_PROJECT_ID)

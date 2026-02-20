@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 from math import radians, cos, sin, asin, sqrt
 
 # Config
-GEE_PROJECT_ID = "van-suraksha-alert"
+GEE_PROJECT_ID = "monkhub-internal-enetra-dev"
 try:
     ee.Initialize(project=GEE_PROJECT_ID)
 except:

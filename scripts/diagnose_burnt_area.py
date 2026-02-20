@@ -1,6 +1,6 @@
 import ee
 
-GEE_PROJECT_ID = 'van-suraksha-alert'
+GEE_PROJECT_ID = 'monkhub-internal-enetra-dev'
 ee.Initialize(project=GEE_PROJECT_ID)
 
 # West Chhindwara approximate bounds

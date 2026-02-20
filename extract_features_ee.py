@@ -18,7 +18,7 @@ import sys
 
 # Initialize Earth Engine
 try:
-    ee.Initialize(project='van-suraksha-alert')
+    ee.Initialize(project='monkhub-internal-enetra-dev')
     print("✓ Earth Engine initialized\n")
 except Exception as e:
     print(f"⚠️ Initialization failed, attempting to authenticate... ({e})")

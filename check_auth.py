@@ -7,5 +7,5 @@ except Exception as e:
     print(f"⚠️ Initialization failed: {e}")
     print("Opening authentication flow...")
     ee.Authenticate()
-    ee.Initialize(ee.Initialize(project='van-suraksha-alert'))
+    ee.Initialize(ee.Initialize(project='monkhub-internal-enetra-dev'))
     print("✅ Success! You are now authenticated.")

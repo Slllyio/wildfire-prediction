@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 
 # Hardcode config
-GEE_PROJECT_ID = "van-suraksha-alert"
+GEE_PROJECT_ID = "monkhub-internal-enetra-dev"
 try:
     ee.Initialize(project=GEE_PROJECT_ID)
 except:

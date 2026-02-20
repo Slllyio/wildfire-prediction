@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 
 # Authenticate/Initialize
 try:
-    ee.Initialize(project='van-suraksha-alert')
+    ee.Initialize(project='monkhub-internal-enetra-dev')
 except:
     ee.Authenticate()
-    ee.Initialize(project='van-suraksha-alert')
+    ee.Initialize(project='monkhub-internal-enetra-dev')
 
 # Region: West Chhindwara
 BOUNDS = {

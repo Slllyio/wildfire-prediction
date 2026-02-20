@@ -18,7 +18,7 @@ import re
 from datetime import datetime, timedelta
 
 # from scripts.config import GEE_PROJECT_ID
-GEE_PROJECT_ID = "van-suraksha-alert"
+GEE_PROJECT_ID = "monkhub-internal-enetra-dev"
 
 # Hardcode bounds for West Chhindwara
 BOUNDS = {

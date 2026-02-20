@@ -17,7 +17,7 @@ from tqdm import tqdm
 import math
 import numpy as np
 
-ee.Initialize(project='van-suraksha-alert')
+ee.Initialize(project='monkhub-internal-enetra-dev')
 
 # ============================================================================
 # PHASE 1: PRE-COMPUTE ANNUAL DATA (One-time per year)

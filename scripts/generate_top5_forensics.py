@@ -13,7 +13,7 @@ import os
 from datetime import datetime, timedelta
 
 # Config
-GEE_PROJECT_ID = "van-suraksha-alert"
+GEE_PROJECT_ID = "monkhub-internal-enetra-dev"
 try: ee.Initialize(project=GEE_PROJECT_ID)
 except: ee.Authenticate(); ee.Initialize(project=GEE_PROJECT_ID)
 

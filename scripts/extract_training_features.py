@@ -24,12 +24,27 @@ from shapely.ops import transform
 supported_drivers['KML'] = 'rw'
 supported_drivers['LIBKML'] = 'rw'
 
-KMZ_PATH = r"c:\Users\dfogu\.gemini\antigravity\scratch\wildfire_v2\data\West Chhindwara.kmz"
-START_DATE = '2025-02-15'
-END_DATE = '2025-06-16'
-GEE_PROJECT_ID = 'van-suraksha-alert'
-OUTPUT_CSV = r"c:\Users\dfogu\.gemini\antigravity\scratch\wildfire_v2\outputs\training_features_multisource.csv"
+# ── Dynamic paths ────────────────────────────────────────────────────────────
+# __file__  →  .../wildfire-prediction/scripts/extract_training_features.py
+# SCRIPT_DIR →  .../wildfire-prediction/scripts/
+# PROJECT_DIR → .../wildfire-prediction/
+SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# KMZ file is expected at:  <project_root>/data/West Chhindwara.kmz
+KMZ_PATH   = os.path.join(PROJECT_DIR, 'data', 'West Chhindwara.kmz')
+
+# Output CSV written to:    <project_root>/outputs/training_features_multisource.csv
+OUTPUT_CSV = os.path.join(PROJECT_DIR, 'outputs', 'training_features_multisource.csv')
+# ─────────────────────────────────────────────────────────────────────────────
+
+START_DATE    = '2025-02-15'
+END_DATE      = '2025-06-16'
+GEE_PROJECT_ID = 'monkhub-internal-enetra-dev'
 BUFFER_METERS = 1000
+
+# Ensure output directory exists so CSV write never fails
+os.makedirs(os.path.dirname(OUTPUT_CSV), exist_ok=True)
 
 def extract_kmz_geometry(kmz_path):
     print(f"Reading KMZ: {kmz_path}")

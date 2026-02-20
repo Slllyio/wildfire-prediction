@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import math
 
 # Initialize
-ee.Initialize(project='van-suraksha-alert')
+ee.Initialize(project='monkhub-internal-enetra-dev')
 
 def get_modis_fire_truth(lat, lon, date_str):
     """Check if VIIRS point coincides with MODIS Burnt Area"""

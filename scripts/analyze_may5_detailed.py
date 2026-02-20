@@ -12,7 +12,7 @@ from shapely.geometry import Point, Polygon, MultiPoint
 import geopandas as gpd
 # import contextily as ctx
 # from scripts.config import GEE_PROJECT_ID
-GEE_PROJECT_ID = "van-suraksha-alert"
+GEE_PROJECT_ID = "monkhub-internal-enetra-dev"
 
 # Initialize GEE
 try:
