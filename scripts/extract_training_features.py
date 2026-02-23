@@ -71,7 +71,7 @@ def get_era5_weather(point, date_gee):
         if not w:
             return {}
         s = w.select(['temperature_2m', 'dewpoint_temperature_2m', 'u_component_of_wind_10m', 
-                      'v_component_of_wind_10m', 'total_precipitation', 'volumetric_soil_water_layer_1'])\
+                    'v_component_of_wind_10m', 'total_precipitation', 'volumetric_soil_water_layer_1'])\
              .reduceRegion(ee.Reducer.mean(), point.buffer(BUFFER_METERS), 11132).getInfo()
         
         u, v = s.get('u_component_of_wind_10m', 0), s.get('v_component_of_wind_10m', 0)

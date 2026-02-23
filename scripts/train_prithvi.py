@@ -14,8 +14,9 @@ from tqdm import tqdm
 # Add project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config import *
-from models.dataset import FirePredictionDataset, collate_fn
+from models.dataset import FireDataset, collate_fn
 from models.prithvi_fire import PrithviFirePredictor, FocalLoss
+from scripts.finetune_classifier import load_all_training_data
 
 def train_epoch(model, dataloader, optimizer, criterion, device):
     """Train for one epoch"""
@@ -81,34 +82,30 @@ def main():
     # Directories
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(base_dir, 'data', 'training')
-    patches_dir = os.path.join(data_dir, 'patches')
-    
-    # Load multiple years for training (2018, 2021, 2024)
-    train_files = [
-        os.path.join(data_dir, 'samples_2018.geojson'),
-        os.path.join(data_dir, 'samples_2021.geojson'),
-        os.path.join(data_dir, 'samples_2024.geojson')
-    ]
-    val_files = [os.path.join(data_dir, 'samples_2025.geojson')]
-
-    
+    # Load training data using the updated CSV pipeline
+    data_dirs = [data_dir, os.path.join(base_dir, 'data', 'training_2023'), os.path.join(base_dir, 'data', 'training_2022')]
     print("Loading datasets...")
-    train_datasets = []
-    for f in train_files:
-        if os.path.exists(f):
-            train_datasets.append(FirePredictionDataset(samples_file=f, data_dir=patches_dir))
     
-    val_datasets = []
-    for f in val_files:
-        if os.path.exists(f):
-            val_datasets.append(FirePredictionDataset(samples_file=f, data_dir=patches_dir))
-            
-    if not train_datasets or not val_datasets:
-        print("Error: No valid datasets found. Check if patches are downloaded.")
+    all_paths, all_labels, all_aux = load_all_training_data(data_dirs)
+    
+    if len(all_paths) == 0:
+        print("Error: No valid datasets found. Check if patches are downloaded and labels.csv exists.")
         return
         
-    train_dataset = torch.utils.data.ConcatDataset(train_datasets)
-    val_dataset = torch.utils.data.ConcatDataset(val_datasets)
+    from sklearn.model_selection import train_test_split
+    indices = range(len(all_paths))
+    train_idx, val_idx = train_test_split(indices, test_size=0.2, random_state=42, stratify=all_labels)
+    
+    train_paths = [all_paths[i] for i in train_idx]
+    train_labels = [all_labels[i] for i in train_idx]
+    train_aux = all_aux[train_idx]
+    
+    val_paths = [all_paths[i] for i in val_idx]
+    val_labels = [all_labels[i] for i in val_idx]
+    val_aux = all_aux[val_idx]
+    
+    train_dataset = FireDataset(train_paths, train_labels, train_aux)
+    val_dataset = FireDataset(val_paths, val_labels, val_aux)
     
     train_loader = DataLoader(
         train_dataset, 
