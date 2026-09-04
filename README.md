@@ -1,3 +1,10 @@
+> **⚠️ This repository has been consolidated into [Slllyio/vanagni](https://github.com/Slllyio/vanagni) and is no longer maintained here.**
+>
+> The full contents and commit history now live at `wildfire-prediction/` inside that repository
+> (grafted with `git filter-repo`, so `git log --follow` and `git blame` still work). See
+> [`docs/CONSOLIDATION.md`](https://github.com/Slllyio/vanagni/blob/main/docs/CONSOLIDATION.md) there for the mapping of old to new commits.
+> This repository will be archived.
+
 # Wildfire Prediction System - Prithvi-EO
 
 **AI-powered wildfire risk prediction for Central Indian forests using satellite imagery and machine learning.**
